@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DistanceConverter</string>
+    <string name="conversionLabel">Conversion:</string>
+    <string name="radioMileToKm">Miles to Kilometers</string>
+    <string name="radioKmToMile">Kilometers to Miles</string>
+    <string name="milesValueLabel">Miles Value:</string>
 </resources>
