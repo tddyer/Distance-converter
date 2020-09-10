@@ -23,10 +23,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/milesTextView"
+        android:id="@+id/inputValueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/milesValueLabel"
+        android:text="@string/milesTextView"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/milesInputField"
@@ -37,13 +37,15 @@
         android:id="@+id/conversionTypeButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/conversionTextView"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conversionTextView">
+
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioMiletoKm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="radioSelected"
             android:text="@string/radioMileToKm"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,18 +53,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioKmToMile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="radioSelected"
             android:text="@string/radioKmToMile"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/radioButton"
-            app:layout_constraintStart_toStartOf="@+id/radioButton"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+            app:layout_constraintEnd_toEndOf="@+id/radioMiletoKm"
+            app:layout_constraintStart_toStartOf="@+id/radioMiletoKm"
+            app:layout_constraintTop_toBottomOf="@+id/radioMiletoKm" />
     </RadioGroup>
 
     <TextView
-        android:id="@+id/kilometersTextView"
+        android:id="@+id/outputValueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/kilometersTextView"

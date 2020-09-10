@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">DistanceConverter</string>
+<!--    TextView labels-->
     <string name="conversionLabel">Conversion:</string>
+    <string name="milesTextView">Miles Value:</string>
+    <string name="kilometersTextView">Kilometers Value:</string>
+<!--    Button Text-->
     <string name="radioMileToKm">Miles to Kilometers</string>
     <string name="radioKmToMile">Kilometers to Miles</string>
-    <string name="milesValueLabel">Miles Value:</string>
     <string name="convertButtonText">Convert</string>
-    <string name="kilometersTextView">Kilometers Value:</string>
 </resources>
