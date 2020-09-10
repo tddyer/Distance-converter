@@ -13,7 +13,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/conversionLabel"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,8 +22,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/milesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/milesValueLabel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/milesInputField"
+        app:layout_constraintStart_toStartOf="@+id/conversionTextView"
+        app:layout_constraintTop_toTopOf="@+id/milesInputField" />
+
     <RadioGroup
-        android:id="@+id/conversionButtons"
+        android:id="@+id/conversionTypeButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/conversionTextView"
@@ -51,15 +62,15 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/kilometersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/milesValueLabel"
-        android:textSize="22sp"
+        android:text="@string/kilometersTextView"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/milesInputField"
+        app:layout_constraintBottom_toBottomOf="@+id/conversionOutputTextView"
         app:layout_constraintStart_toStartOf="@+id/conversionTextView"
-        app:layout_constraintTop_toTopOf="@+id/milesInputField" />
+        app:layout_constraintTop_toTopOf="@+id/conversionOutputTextView" />
 
     <EditText
         android:id="@+id/milesInputField"
@@ -71,19 +82,31 @@
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conversionButtons" />
+        app:layout_constraintTop_toBottomOf="@+id/conversionTypeButtons" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/convertButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="@color/buttonBackground"
-        android:text="Button"
+        android:text="@string/convertButtonText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/milesInputField" />
+
+    <TextView
+        android:id="@+id/conversionOutputTextView"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/buttonBackground"
+        android:text="Converted Output Here"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convertButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
