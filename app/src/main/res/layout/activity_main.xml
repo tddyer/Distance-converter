@@ -37,6 +37,7 @@
         android:id="@+id/conversionTypeButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conversionTextView">
@@ -78,8 +79,8 @@
     <EditText
         android:id="@+id/conversionInputField"
         android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:background="@color/buttonBackground"
         android:ems="10"
@@ -97,6 +98,7 @@
         android:background="@color/buttonBackground"
         android:onClick="convert"
         android:text="@string/convertButtonText"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conversionInputField" />
@@ -104,7 +106,7 @@
     <TextView
         android:id="@+id/conversionOutputTextView"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:background="@color/buttonBackground"
@@ -122,5 +124,36 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/outputValueTextView"
         app:layout_constraintTop_toBottomOf="@+id/conversionOutputTextView" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/buttonBackground"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/clearButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conversionHistoryTextView" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Clear"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
