@@ -63,7 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void convert(View v) {
         // get input value -> convert to appropriate output value
-        double inputValue = Double.parseDouble(inputField.getText().toString());
+        String inputString = inputField.getText().toString();
+        double inputValue;
+        // error handling -> if no input then do nothing
+        if (inputString.equals(""))
+            return;
+        else
+            inputValue = Double.parseDouble(inputString);
+
         double outputValue = inputValue * selectedConversion;
 
         // round input/output values
