@@ -8,4 +8,5 @@
     <string name="radioMileToKm">Miles to Kilometers</string>
     <string name="radioKmToMile">Kilometers to Miles</string>
     <string name="convertButtonText">Convert</string>
+    <string name="conversionHistoryTextView">Conversion History:</string>
 </resources>
