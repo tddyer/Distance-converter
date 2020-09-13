@@ -5,6 +5,7 @@ import androidx.arch.core.util.Function;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView outputTextView;
     private EditText inputField;
     private TextView outputField;
+    private TextView conversionHistoryTextView;
 
     // conversion constants
     final double MILESTOKILOMETERS = 1.60934;
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     // holds the appropriate conversion constant to use
     double selectedConversion;
+
+    // contains record of all completed conversions
+    String conversions = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         outputField = findViewById(R.id.conversionOutputTextView);
         inputTextView = findViewById(R.id.inputValueTextView);
         outputTextView = findViewById(R.id.outputValueTextView);
+        conversionHistoryTextView = findViewById(R.id.conversionHistoryOutputTextView);
+        conversionHistoryTextView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     // updates textViews and conversion multiplier based upon radio button selection
@@ -59,8 +66,25 @@ public class MainActivity extends AppCompatActivity {
         double inputValue = Double.parseDouble(inputField.getText().toString());
         double outputValue = inputValue * selectedConversion;
 
+        // round input/output values
+        String inputRounded = String.format(Locale.US, "%.1f", inputValue);
+        String outputRounded = String.format(Locale.US, "%.1f", outputValue);
+
         // update input/output fields after converting
-        outputField.setText(String.format(Locale.US, "%.1f", outputValue));
+        outputField.setText(outputRounded);
         inputField.setText("");
+
+        // update conversion history string
+        if (selectedConversion == MILESTOKILOMETERS)
+            conversions +=  inputRounded + " Mi ==> " + outputRounded + " Km\n";
+        else
+            conversions +=  inputRounded + " Km ==> " + outputRounded + " Mi\n";
+        conversionHistoryTextView.setText(conversions);
+    }
+
+
+    public void clearHistory(View v) {
+        conversions = "";
+        conversionHistoryTextView.setText(conversions);
     }
 }
