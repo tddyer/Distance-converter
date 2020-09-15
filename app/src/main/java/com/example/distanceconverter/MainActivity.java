@@ -1,5 +1,6 @@
 package com.example.distanceconverter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.util.Function;
 
@@ -22,14 +23,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView conversionHistoryTextView;
 
     // conversion constants
-    final double MILESTOKILOMETERS = 1.60934;
-    final double KILOMETERSTOMILES = 0.621371;
+    private final double MILESTOKILOMETERS = 1.60934;
+    private final double KILOMETERSTOMILES = 0.621371;
 
     // holds the appropriate conversion constant to use - default is Mi -> Km
-    double selectedConversion = MILESTOKILOMETERS;
+    private double selectedConversion = MILESTOKILOMETERS;
 
     // contains record of all completed conversions
-    String conversions = "";
+    private String conversions = "";
+
+    private String inputString;
+    private String outputString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void convert(View v) {
         // get input value -> convert to appropriate output value
-        String inputString = inputField.getText().toString();
+        inputString = inputField.getText().toString();
         double inputValue;
         // error handling -> if no input then do nothing
         if (inputString.equals(""))
@@ -75,17 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
         // round input/output values
         String inputRounded = String.format(Locale.US, "%.1f", inputValue);
-        String outputRounded = String.format(Locale.US, "%.1f", outputValue);
+        outputString = String.format(Locale.US, "%.1f", outputValue);
 
         // update input/output fields after converting
-        outputField.setText(outputRounded);
-        inputField.setText("");
+        outputField.setText(outputString);
+        inputString = "";
+        inputField.setText(inputString);
 
         // update conversion history string
         if (selectedConversion == MILESTOKILOMETERS)
-            conversions =  inputRounded + " Mi ==> " + outputRounded + " Km\n" + conversions;
+            conversions =  inputRounded + " Mi ==> " + outputString + " Km\n" + conversions;
         else
-            conversions =  inputRounded + " Km ==> " + outputRounded + " Mi\n" + conversions;
+            conversions =  inputRounded + " Km ==> " + outputString + " Mi\n" + conversions;
         conversionHistoryTextView.setText(conversions);
     }
 
@@ -93,5 +98,33 @@ public class MainActivity extends AppCompatActivity {
     public void clearHistory(View v) {
         conversions = "";
         conversionHistoryTextView.setText(conversions);
+    }
+
+    // overriding default save + restore state methods to save data upon change of state
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        // saving current values
+        outState.putString("CONVERSION HISTORY", conversions);
+        outState.putString("INPUT VALUE", inputField.getText().toString());
+        outState.putString("OUTPUT VALUE", outputString);
+
+        // calling super after saving values
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+
+        // calling super before restoring saved values
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // restoring values from saved state
+        conversions = savedInstanceState.getString("CONVERSION HISTORY");
+        conversionHistoryTextView.setText(conversions);
+        inputString = savedInstanceState.getString("INPUT VALUE");
+        inputField.setText(inputString);
+        outputString = savedInstanceState.getString("OUTPUT VALUE");
+        outputField.setText(outputString);
     }
 }
