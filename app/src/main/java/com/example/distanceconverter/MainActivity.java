@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
         // update conversion history string
         if (selectedConversion == MILESTOKILOMETERS)
-            conversions +=  inputRounded + " Mi ==> " + outputRounded + " Km\n";
+            conversions =  inputRounded + " Mi ==> " + outputRounded + " Km\n" + conversions;
         else
-            conversions +=  inputRounded + " Km ==> " + outputRounded + " Mi\n";
+            conversions =  inputRounded + " Km ==> " + outputRounded + " Mi\n" + conversions;
         conversionHistoryTextView.setText(conversions);
     }
 
