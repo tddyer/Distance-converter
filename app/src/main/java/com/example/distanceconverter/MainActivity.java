@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     final double MILESTOKILOMETERS = 1.60934;
     final double KILOMETERSTOMILES = 0.621371;
 
-    // holds the appropriate conversion constant to use
-    double selectedConversion;
+    // holds the appropriate conversion constant to use - default is Mi -> Km
+    double selectedConversion = MILESTOKILOMETERS;
 
     // contains record of all completed conversions
     String conversions = "";
