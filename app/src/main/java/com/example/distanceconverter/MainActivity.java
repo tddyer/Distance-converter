@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putString("CONVERSION HISTORY", conversions);
         outState.putString("INPUT VALUE", inputField.getText().toString());
         outState.putString("OUTPUT VALUE", outputString);
+        outState.putDouble("SELECTED CONVERSION", selectedConversion);
 
         // calling super after saving values
         super.onSaveInstanceState(outState);
@@ -126,5 +127,6 @@ public class MainActivity extends AppCompatActivity {
         inputField.setText(inputString);
         outputString = savedInstanceState.getString("OUTPUT VALUE");
         outputField.setText(outputString);
+        selectedConversion = savedInstanceState.getDouble("SELECTED CONVERSION");
     }
 }
