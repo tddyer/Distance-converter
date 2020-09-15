@@ -85,13 +85,13 @@
         android:layout_marginEnd="10dp"
         android:background="@color/buttonBackground"
         android:ems="10"
-        android:gravity="bottom|top"
+        android:gravity="bottom|top|center_horizontal"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal|numberSigned"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conversionTypeButtons"
-        android:importantForAutofill="no"
         tools:ignore="LabelFor" />
 
     <Button
@@ -116,9 +116,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:background="@color/buttonBackground"
-        android:gravity="bottom|top"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:gravity="bottom|top|center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convertButton" />
 
